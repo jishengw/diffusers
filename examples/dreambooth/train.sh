@@ -1,8 +1,8 @@
 exec >logfile.txt 2>&1 # Log the script for debugging
 export MODEL_NAME='stabilityai/stable-diffusion-2-1'
-export INSTANCE_DIR="./input_imageset" # The folder for training image dataset
-export CLASS_DIR="./class_glass" # The folder that store Class image for Prior preservation loss
-export OUTPUT_DIR="./model_2_glasses_of_wine" # The folder that store the fine tuned model
+export INSTANCE_DIR="./train_image_two_people" # The folder for training image dataset
+export CLASS_DIR="./class_two_people" # The folder that store Class image for Prior preservation loss
+export OUTPUT_DIR="./model_two_people" # The folder that store the fine tuned model
 
 
 accelerate launch train_dreambooth_lora.py \
@@ -11,8 +11,8 @@ accelerate launch train_dreambooth_lora.py \
   --class_data_dir=$CLASS_DIR \
   --output_dir=$OUTPUT_DIR \
   --with_prior_preservation --prior_loss_weight=1.0 \
-  --instance_prompt="2 glasses of wine" \
-  --class_prompt="glasses of wine" \
+  --instance_prompt="2 people" \
+  --class_prompt="people" \
   --resolution=768 \
   --train_batch_size=1 \
   --gradient_accumulation_steps=2 --gradient_checkpointing \
@@ -20,9 +20,11 @@ accelerate launch train_dreambooth_lora.py \
   --learning_rate=5e-6 \
   --lr_scheduler="constant" \
   --lr_warmup_steps=0 \
+  --num_train_epochs=10 \
   --num_class_images=20 \
-  --max_train_steps=50\
-    --checkpointing_steps=25 \
+  --max_train_steps=200 \
+  --checkpointing_steps=100 \
+
 
 
 #accelerate launch train_dreambooth.py \
