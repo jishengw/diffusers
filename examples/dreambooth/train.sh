@@ -1,8 +1,8 @@
 exec >logfile.txt 2>&1 # Log the script for debugging
 export MODEL_NAME='stabilityai/stable-diffusion-2-1'
-export INSTANCE_DIR="./train_image_two_people" # The folder for training image dataset
-export CLASS_DIR="./class_two_people" # The folder that store Class image for Prior preservation loss
-export OUTPUT_DIR="./model_two_people" # The folder that store the fine tuned model
+export INSTANCE_DIR="./cube_picked" # The folder for training image dataset
+export CLASS_DIR="./class_cube_lr_5e5" # The folder that store Class image for Prior preservation loss
+export OUTPUT_DIR="./model_cube_lr_5e5" # The folder that store the fine tuned model
 
 
 accelerate launch train_dreambooth_lora.py \
@@ -11,19 +11,19 @@ accelerate launch train_dreambooth_lora.py \
   --class_data_dir=$CLASS_DIR \
   --output_dir=$OUTPUT_DIR \
   --with_prior_preservation --prior_loss_weight=1.0 \
-  --instance_prompt="2 people" \
-  --class_prompt="people" \
+  --instance_prompt="a picture of rubik's cube" \
+  --class_prompt="a picture of cube" \
   --resolution=768 \
   --train_batch_size=1 \
   --gradient_accumulation_steps=2 --gradient_checkpointing \
   --use_8bit_adam \
-  --learning_rate=5e-6 \
+  --learning_rate=5e-5 \
   --lr_scheduler="constant" \
   --lr_warmup_steps=0 \
   --num_train_epochs=10 \
   --num_class_images=20 \
-  --max_train_steps=200 \
-  --checkpointing_steps=100 \
+  --max_train_steps=300 \
+  --checkpointing_steps=50 \
 
 
 

@@ -1,0 +1,28 @@
+Start**********************
+Windows PowerShell transcript start
+Start time: 20240321064415
+Username: DESKTOP-HINRCFR\74590
+RunAs User: DESKTOP-HINRCFR\74590
+Configuration Name: 
+Machine: DESKTOP-HINRCFR (Microsoft Windows NT 10.0.19045.0)
+Host Application: powershell.exe -ExecutionPolicy RemoteSigned -NoExit -File C:/Users/74590/PycharmProjects/pythonProject/venv/Scripts/activate.ps1
+Process ID: 8984
+PSVersion: 5.1.19041.4046
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.4046
+BuildVersion: 10.0.19041.4046
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is .\log.txt
+(venv) PS C:\Users\74590\PycharmProjects\pythonProject\diffusers\examples\dreambooth>
+PS>powershell.exe C:/Users/74590/PycharmProjects/pythonProject/diffusers/examples/dreambooth/test.sh
+
+(venv) PS C:\Users\74590\PycharmProjects\pythonProject\diffusers\examples\dreambooth>
+PS>Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20240321064545
+**********************

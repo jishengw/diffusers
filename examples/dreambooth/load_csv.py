@@ -27,8 +27,7 @@ class Loader:
                             writer.writerow(row)
                             self.copyimg(row[3],"train_image_two_people/")
                             break
-                    if count >= 50:
-                        break
+
         return
         # def readcsv(self,inputfile,outputfolder):
         #     with open(inputfile):
